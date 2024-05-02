@@ -1,9 +1,12 @@
 const workoutTypeDef = `#graphql
     type Workout {
         _id: ID!
+        userId: ID
         name: String!
         duration: String!
         identificationPicture: String
+        category: String!
+        date: String
     }
 
     type Query {
@@ -12,17 +15,18 @@ const workoutTypeDef = `#graphql
     }
 
     type Mutation {
-        addWorkoutToList(input: AddWorkoutToListInput!): Workout
         createWorkout(input: CreateWorkoutInput!): Workout
+        updateWorkout(input: UpdateWorkoutInput!): Workout
         deleteWorkout: DeleteWorkoutResponse
     }
 
-    input AddWorkoutToListInput {
+    input CreateWorkoutInput {
         name: String!
         duration: String!
+        identificationPicture: String
     }
 
-    input CreateWorkoutInput {
+    input UpdateWorkoutInput {
         name: String!
         duration: String!
         identificationPicture: String
