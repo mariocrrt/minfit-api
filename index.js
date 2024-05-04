@@ -15,6 +15,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 configurePassport();
+
 const app = express();
 const httpServer = http.createServer(app);
 const MongoDBStore = connectMongo(session);
@@ -23,6 +24,7 @@ const store = new MongoDBStore({
   collection: "sessions",
 });
 store.on("error", (err) => console.error(err));
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -35,8 +37,11 @@ app.use(
     store: store,
   })
 );
+
 app.use(passport.initialize());
+
 app.use(passport.session());
+
 const server = new ApolloServer({
   typeDefs: mergedTypeDefs,
   resolvers: mergedResolvers,
