@@ -77,6 +77,8 @@ const userResolver = {
       }
     },
   },
+
+  // TODO: ADD USER/WORKOUT RELATION
 };
 
 export default userResolver;
