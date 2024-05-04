@@ -36,3 +36,5 @@ const workoutTypeDef = `#graphql
         message: String!
     }
 `;
+
+export default workoutTypeDef;

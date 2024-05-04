@@ -8,6 +8,7 @@
     "start": "node index.js",
     "server": "nodemon index.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mariocrrt/minfit-api.git"

@@ -31,3 +31,5 @@ const userTypeDef = `#graphql
 
 
 `;
+
+export default userTypeDef;
