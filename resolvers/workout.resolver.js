@@ -38,9 +38,33 @@ const workoutResolver = {
         throw new Error("Error creating workout");
       }
     },
-    updateWorkout: async (parent, args, context) => {},
-    deleteWorkout: async (parent, args, context) => {},
+    updateWorkout: async (_, { input }) => {
+      try {
+        const updatedWorkout = await Workout.findByIdAndUpdate(
+          input.workoutId,
+          input,
+          { new: true }
+        );
+
+        return updatedWorkout;
+      } catch (err) {
+        console.error("Error updating workout", err);
+        throw new Error("Error updating workout");
+      }
+    },
+    deleteWorkout: async (_, { workoutId }) => {
+      try {
+        const deletedWorkout = await Workout.findByIdAndDelete(input.workoutId);
+
+        return deletedWorkout;
+      } catch (err) {
+        console.error("Error deleting workout", err);
+        throw new Error("Error deleting workout");
+      }
+    },
   },
+
+  // TODO: ADD USER/WORKOUT RELATION
 };
 
 export default workoutResolver;
